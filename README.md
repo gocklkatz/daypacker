@@ -1,3 +1,8 @@
+# Problem
+
+0-1 knapsack problem
+
 # Algorithm list
 
-- Greedy algorithm for the 0-1 knapsack problem
+- Complete enumeration
+- Flexible greedy algorithm

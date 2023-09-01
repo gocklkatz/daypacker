@@ -11,7 +11,20 @@ import static org.junit.jupiter.api.Assertions.*;
 class DpSolverTest {
 
     @Test
-    void solveKnapsack1() {
+    void solveKnapsackComplete() {
+        List<Food> foods = buildMenu();
+
+        DpSolver solver = new DpSolver(new DpAlgorithmCompleteEnumeration());
+
+        //Max sum(benefit), sum(cost)<750, complete enumeration
+        Result resultBenefit = solver.solve(foods, 750, Comparator.comparingInt(Food::benefit));
+        printOutResult(resultBenefit);
+        assertEquals(353, resultBenefit.getTotalBenefit());
+        assertEquals(685, resultBenefit.getTotalCost());
+    }
+
+    @Test
+    void solveKnapsackGreedy() {
         List<Food> foods = buildMenu();
 
         DpSolver solver = new DpSolver(new DpAlgorithmFlexibleGreedy());
